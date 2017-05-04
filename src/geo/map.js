@@ -8,14 +8,7 @@ var Layers = require('./map/layers');
 var sanitize = require('../core/sanitize');
 var GeometryFactory = require('./geometry-models/geometry-factory');
 
-/**
- * @classdesc
- * Map model
- * @constructor
- * @param  {Object} attrs
- * @param  {Object} options
- */
-var Map = Model.extend({
+var Map = Model.extend( /** @lends Map.prototype @ignore */ {
   defaults: {
     attribution: [config.get('cartodb_attributions')],
     center: [0, 0],
@@ -293,9 +286,9 @@ var Map = Model.extend({
   },
 
   /**
-  * Change multiple options at the same time
-  * @params {Object} New options object
-  */
+   * Change multiple options at the same time
+   * @params {Object} New options object
+   */
   setOptions: function (options) {
     if (typeof options !== 'object' || options.length) {
       if (this.options.debug) {
@@ -310,8 +303,8 @@ var Map = Model.extend({
   },
 
   /**
-  * return getViewbounds if it is set
-  */
+   * return getViewbounds if it is set
+   */
   getViewBounds: function () {
     if (this.has('view_bounds_sw') && this.has('view_bounds_ne')) {
       return [
@@ -391,17 +384,16 @@ var Map = Model.extend({
   },
 
   /**
-  * Checks if the base layer is already in the map as base map
-  */
+   * Checks if the base layer is already in the map as base map
+   */
   isBaseLayerAdded: function (layer) {
     var baselayer = this.getBaseLayer();
     return baselayer && layer.isEqual(baselayer);
   },
 
   /**
-  * gets the url of the template of the tile layer
-  * @method getLayerTemplate
-  */
+   * gets the url of the template of the tile layer
+   */
   getLayerTemplate: function () {
     var baseLayer = this.getBaseLayer();
     if (baseLayer && baseLayer.get('options')) {

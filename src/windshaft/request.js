@@ -1,5 +1,6 @@
 /**
  * Simple value object that holds everything need to instantiate a map using the Maps API
+ * @ignore
  */
 var Request = function (payload, params, options) {
   this.payload = payload;

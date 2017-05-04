@@ -3,6 +3,7 @@ var _ = require('underscore');
 /**
  * Manages the tooltips for a map. It listens to events triggered by a
  * CartoDBLayerGroupView and updates models accordingly
+ * @ignore
  */
 var TooltipManager = function (deps) {
   if (!deps.mapModel) throw new Error('mapModel is required');

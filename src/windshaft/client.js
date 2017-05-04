@@ -19,6 +19,7 @@ var COMPRESSION_LEVEL = 3;
 /**
  * Windshaft client. It provides a method to create instances of maps in Windshaft.
  * @param {object} options Options to set up the client
+ * @ignore
  */
 var WindshaftClient = function (settings) {
   validatePresenceOfOptions(settings, ['urlTemplate', 'userName']);
